@@ -1,0 +1,9 @@
+/*.dbf
+/*.index
+/*.prj
+/*.shp
+/*.shx
+/*.zip
+/imposm-mapping.py
+build
+*.pyc
