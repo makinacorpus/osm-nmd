@@ -108,7 +108,7 @@ come in as well.
   [zoom=11] {
     [stylegroup='motorway'] { line-width: @rdz11_maj + 4; }
     [stylegroup='mainroad'] { line-width: @rdz11_med + 1.6; }
-    [stylegroup='minorroad']{ line-width: @rdz11_min; }
+    [stylegroup='minorroad']{ line-width: 0; }
     /* No minor bridges yet */
     [stylegroup='service']  { line-width: 0; }
     [stylegroup='noauto']   { line-width: 0; }
@@ -116,10 +116,10 @@ come in as well.
   }
   [zoom=12] {
     [stylegroup='motorway'] {
-      line-width: @rdz12_maj + 2;
+      line-width: @rdz12_maj + 2.5;
       line-smooth: 0.8;
     }
-    [stylegroup='mainroad'] { line-width: @rdz12_med + 4; }
+    [stylegroup='mainroad'] { line-width: @rdz12_med + 2; }
     [stylegroup='minorroad']{ line-width: @rdz12_min; }
     /* No minor bridges yet */
     [stylegroup='service']  { line-width: 0; }
@@ -266,7 +266,7 @@ come in as well.
     [stylegroup='railway']  { line-width: 0.5; }
   }
   [zoom=16] {
-    [stylegroup='motorway'] { line-width: @rdz16_maj; }
+    [stylegroup='motorway'] { line-width: @rdz16_maj - 1; }
     [stylegroup='mainroad'] { line-width: @rdz16_med; }
     [stylegroup='minorroad']{ line-width: @rdz16_min; }
     [stylegroup='service']  { line-width: @rdz16_min / 3; }
@@ -274,7 +274,7 @@ come in as well.
     [stylegroup='railway']  { line-width: 1; }
   }
   [zoom=17] {
-    [stylegroup='motorway'] { line-width: @rdz17_maj; }
+    [stylegroup='motorway'] { line-width: @rdz17_maj - 2; }
     [stylegroup='mainroad'] { line-width: @rdz17_med; }
     [stylegroup='minorroad']{ line-width: @rdz17_min; }
     [stylegroup='service']  { line-width: @rdz17_min / 3; }
@@ -282,7 +282,7 @@ come in as well.
     [stylegroup='railway']  { line-width: 2; }
   }
   [zoom>=18] {
-    [stylegroup='motorway'] { line-width: @rdz18_maj; }
+    [stylegroup='motorway'] { line-width: @rdz18_maj - 3; }
     [stylegroup='mainroad'] { line-width: @rdz18_med; }
     [stylegroup='minorroad']{ line-width: @rdz18_min; }
     [stylegroup='service']  { line-width: @rdz18_min / 2; }

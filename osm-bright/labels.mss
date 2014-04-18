@@ -438,6 +438,8 @@
   text-halo-radius:1;
   text-min-distance:60;
   text-size:11;
+  [zoom>=19] { text-size:12; }
+  [zoom>=20] { text-size:14; }
 }
 
 #minorroad_label[zoom>14] {
@@ -449,7 +451,8 @@
   text-halo-fill:@road_halo;
   text-halo-radius:1;
   text-min-distance:60;
-  text-size:11;
+  [zoom>=19] { text-size:10; }
+  [zoom>=20] { text-size:12; }
 }
 
 /* ================================================================== */
@@ -466,6 +469,20 @@
   [oneway=-1] { marker-file: url(img/icon/oneway-reverse.svg); }
   [zoom=16] { marker-transform: "scale(0.5)"; }
   [zoom=17] { marker-transform: "scale(0.75)"; }
+}
+
+/* ================================================================== */
+/* ADDRESSES
+/* ================================================================== */
+
+#addresses[zoom>=18] {
+  text-name:'[addr]';
+  text-face-name:@sans;
+  text-size:9;
+  text-fill:@road_text;
+  text-halo-fill:@road_halo;
+  [zoom>=19] { text-size:10; }
+  [zoom>=20] { text-size:12; }
 }
 
 

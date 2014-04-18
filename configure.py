@@ -19,9 +19,9 @@ config["path"] = path.expanduser("~/Documents/MapBox/project")
 # Leave empty for Mapnik defaults. The only required parameter is dbname.
 config["postgis"]["host"]     = "localhost"
 config["postgis"]["port"]     = ""
-config["postgis"]["dbname"]   = "osm"
-config["postgis"]["user"]     = "toutpt"
-config["postgis"]["password"] = ""
+config["postgis"]["dbname"]   = "nantes"
+config["postgis"]["user"]     = "gisuser"
+config["postgis"]["password"] = "corpus"
 
 # Increase performance if you are only rendering a particular area by
 # specifying a bounding box to restrict queries. Format is "XMIN,YMIN,XMAX,YMAX"

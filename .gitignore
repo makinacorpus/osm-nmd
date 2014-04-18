@@ -7,3 +7,4 @@
 /imposm-mapping.py
 build
 *.pyc
+configure.py
