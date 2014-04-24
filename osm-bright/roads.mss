@@ -206,9 +206,10 @@ come in as well.
   }
   [stylegroup='railway'] {
     line-color: @rail_line;
-    line-dasharray: 1,1;
+    line-dasharray: 3,3;
     [type='subway'] { line-opacity: 0.67; }
-    [zoom>15] { line-dasharray: 1,2; } 
+    [zoom>15] { line-dasharray: 5,5; } 
+    [type='tram'] { line-dasharray: 1,0; }
   }
   [stylegroup='noauto'],
   [stylegroup='service'],

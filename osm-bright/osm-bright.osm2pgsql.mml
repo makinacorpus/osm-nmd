@@ -329,6 +329,7 @@
       "Datasource": {
         "dbname": "osm", 
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34", 
+        "extent_cache": "auto", 
         "geometry_field": "way", 
         "id": "roads_high", 
         "key_field": "", 
@@ -337,7 +338,14 @@
         "table": "( SELECT way, COALESCE(highway, railway) AS type, 0 AS tunnel, 0 AS bridge, access, 'fill' AS render,\n  CASE\n    WHEN highway IN ('motorway', 'trunk') THEN 'motorway'\n    WHEN highway IN ('primary', 'secondary') THEN 'mainroad'\n    WHEN highway IN ('motorway_link', 'trunk_link', 'primary_link', 'secondary_link', 'tertiary', 'tertiary_link', 'residential', 'unclassified', 'road', 'living_street') THEN 'minorroad'\n    WHEN highway IN ('service', 'track') THEN 'service'\n    WHEN highway IN ('path', 'cycleway', 'footway', 'pedestrian', 'steps', 'bridleway') THEN 'noauto'\n    WHEN railway IN ('light_rail', 'subway', 'narrow_gauge', 'rail', 'tram') THEN 'railway'\n    ELSE 'other' END AS stylegroup\n  FROM planet_osm_line\n  WHERE (highway IS NOT NULL OR railway IS NOT NULL)\n    AND (tunnel IS NULL OR tunnel = 'no')\n    AND (bridge IS NULL OR bridge = 'no')\n  ORDER BY z_order\n) AS data", 
         "type": "postgis"
       }, 
+      "advanced": {}, 
       "class": "", 
+      "extent": [
+        -179.9999999749438, 
+        -85.051, 
+        179.9999999749438, 
+        85.051
+      ], 
       "geometry": "linestring", 
       "id": "roads_high", 
       "name": "roads_high", 
@@ -564,7 +572,34 @@
         "key_field": "", 
         "project": "CarteEco", 
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over", 
-        "table": "( SELECT way, \"addr:housenumber\" AS addr\n  FROM planet_osm_point\n  WHERE \"addr:housenumber\" IS NOT NULL\n) AS data", 
+        "table": "( SELECT way, \"addr:housenumber\" AS addr\n  FROM planet_osm_point\n  WHERE \"addr:housenumber\" IS NOT NULL\n  AND shop IS NULL\n  AND amenity IS NULL\n  AND tourism IS NULL\n) AS data", 
+        "type": "postgis"
+      }, 
+      "advanced": {}, 
+      "class": "", 
+      "extent": [
+        -179.9999999749438, 
+        -85.051, 
+        179.9999999749438, 
+        85.051
+      ], 
+      "geometry": "point", 
+      "id": "addresses", 
+      "name": "addresses", 
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over", 
+      "srs-name": "900913"
+    }, 
+    {
+      "Datasource": {
+        "dbname": "osm", 
+        "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34", 
+        "extent_cache": "auto", 
+        "geometry_field": "way", 
+        "id": "pois", 
+        "key_field": "", 
+        "project": "CarteEco", 
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over", 
+        "table": "( SELECT way, amenity, shop, tourism, name\n  FROM planet_osm_point\n  WHERE amenity IS NOT NULL\n  OR shop IS NOT NULL\n  OR tourism IS NOT NULL\n  UNION\n  SELECT way, amenity, shop, tourism, name\n  FROM planet_osm_polygon\n  WHERE amenity IS NOT NULL\n  OR shop IS NOT NULL\n  OR tourism IS NOT NULL\n) AS data", 
         "type": "postgis"
       }, 
       "advanced": {}, 
@@ -572,12 +607,12 @@
       "extent": [
         -2.0988092997078414, 
         46.685663194946635, 
-        -1.2233555998297094, 
+        -0.9457268998683505, 
         47.43362259491367
       ], 
       "geometry": "point", 
-      "id": "addresses", 
-      "name": "addresses", 
+      "id": "pois", 
+      "name": "pois", 
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over", 
       "srs-name": "900913"
     }
@@ -586,14 +621,15 @@
     "palette.mss", 
     "base.mss", 
     "roads.mss", 
-    "labels.mss"
+    "labels.mss", 
+    "pois.mss"
   ], 
   "attribution": "Data \u00a9 OpenStreetMap (and) contributors, CC-BY-SA", 
   "bounds": [
-    -2.027, 
-    46.9203, 
-    -1.0464, 
-    47.5079
+    -1.7242, 
+    47.1496, 
+    -1.4069, 
+    47.3109
   ], 
   "center": [
     -1.5525, 
