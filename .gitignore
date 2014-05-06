@@ -4,6 +4,7 @@
 /*.shp
 /*.shx
 /*.zip
+/configure.py
 /imposm-mapping.py
 build
 *.pyc
