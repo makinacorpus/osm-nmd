@@ -1,0 +1,7 @@
+{
+	"format":"mbtiles",
+	"minzoom": 7,
+	"maxzoom": 10,
+	"bbox": "-5.5965,41.4209,10.1799,51.0369",
+	"metatile": 4
+}

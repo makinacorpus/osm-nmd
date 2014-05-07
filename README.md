@@ -124,3 +124,22 @@ on its loading status. You can also check the TileMill logs to see the download
 status of the remote files.
 
 Once the map tiles show up, you're now ready to start editing the template in TileMill!
+
+How to generate the tiles
+=========================
+
+read the doc https://www.mapbox.com/tilemill/docs/manual/exporting/
+
+  cd /Applications/TileMill.app/Contents/Resources/
+  ./index.js export osmnmd france.mbtiles --config=/Users/toutpt/makina/nmd/carteeco/osm-nmd/tilemill-export-args-france.json
+  ./index.js export osmnmd nantes.mbtiles --config=/Users/toutpt/makina/nmd/carteeco/osm-nmd/tilemill-export-args-nantes.json 
+
+
+Now we need to merge the three mbtiles
+
+You must install MBUtil, if you don't already have it, just clone the repository it will be ignored in this repository.
+
+  git clone https://github.com/mapbox/mbutil
+  sh mbutil/patch 
+
+
