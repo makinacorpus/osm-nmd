@@ -1,3 +1,4 @@
+/*
 #pois[zoom >= 18] {
   text-name:'[name]';
   text-face-name:@sans;
@@ -85,8 +86,6 @@
     point-file: url('symbols/school.png');
   	point-placement: interior;
     point-allow-overlap:true;
-    text-fill:red;
-    text-allow-overlap:true;
   }
   [amenity = 'university'],
   [amenity = 'college'] {
@@ -94,7 +93,7 @@
   	point-placement: interior;
   }
 }
-
+*/
 /*
 A AFFICHER
 

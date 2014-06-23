@@ -132,14 +132,40 @@ read the doc https://www.mapbox.com/tilemill/docs/manual/exporting/
 
   cd /Applications/TileMill.app/Contents/Resources/
   ./index.js export osmnmd france.mbtiles --config=/Users/toutpt/makina/nmd/carteeco/osm-nmd/tilemill-export-args-france.json
-  ./index.js export osmnmd nantes.mbtiles --config=/Users/toutpt/makina/nmd/carteeco/osm-nmd/tilemill-export-args-nantes.json 
+  ./index.js export osmnmdnantes nantes.mbtiles --config=/Users/toutpt/makina/nmd/carteeco/osm-nmd/tilemill-export-args-nantes.json
 
 
-Now we need to merge the three mbtiles
+  ./index.js export osmnmd pdl.mbtiles --bbox="-2.58728,46.24445,0.95581,48.58206 " --minzoom=11 --maxzoom=13 
 
-You must install MBUtil, if you don't already have it, just clone the repository it will be ignored in this repository.
+--bbox="xmin,ymin,xmax,ymax"
+--bbox="-131.4844,20.3034,-62.5781,51.3992"
 
-  git clone https://github.com/mapbox/mbutil
-  sh mbutil/patch 
+Now we need to merge the mbtiles
+
+  sqlite3 nantes.mbtiles
+
+> SELECT * FROM metadata;
+
+bounds|-1.7242,47.1496,-1.4069,47.3109
+center|-1.5525,47.2121,11
+minzoom|10
+maxzoom|19
+attribution|Data © OpenStreetMap (and) contributors, CC-BY-SA
+description|
+name|osmnmd-nantes
+template|
+version|1.0.0
+
+sqlite> UPDATE metadata SET value = '7' WHERE name = 'minzoom';
+sqlite> ATTACH 'france.mbtiles' AS france;
+sqlite> INSERT OR REPLACE INTO images SELECT * from france.images;
+sqlite> INSERT OR REPLACE INTO map SELECT * from france.map;
+
+
+./index.js export osmnmd pdl.mbtiles --bbox="-2.58728,46.24445,0.95581,48.58206 " --minzoom=11 --maxzoom=13 
+
+sqlite> ATTACH 'pdl.mbtiles' AS pdl;
+sqlite> INSERT OR REPLACE INTO images SELECT * from pdl.images;
+sqlite> INSERT OR REPLACE INTO map SELECT * from pdl.map;
 
 
