@@ -472,7 +472,7 @@
         "key_field": "", 
         "project": "foss4g-2011", 
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over", 
-        "table": "( SELECT COALESCE(landuse, leisure, \"natural\", highway) AS type,\n    name, way_area AS area,\n    ST_PointOnSurface(way) AS way\n  FROM planet_osm_polygon\n  WHERE name IS NOT NULL\n    AND way && !bbox!\n    AND ST_IsValid(way)\n) AS data", 
+        "table": "( SELECT COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type,\n    name, way_area AS area,\n    ST_PointOnSurface(way) AS way\n  FROM planet_osm_polygon\n  WHERE name IS NOT NULL\n    AND way && !bbox!\n    AND ST_IsValid(way)\n  ) AS data", 
         "type": "postgis"
       }, 
       "advanced": {}, 
@@ -487,7 +487,8 @@
       "id": "area_label", 
       "name": "area_label", 
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over", 
-      "srs-name": "900913"
+      "srs-name": "900913", 
+      "status": "off"
     }, 
     {
       "Datasource": {
@@ -579,7 +580,7 @@
         "key_field": "", 
         "project": "CarteEco", 
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over", 
-        "table": "( SELECT way, \"addr:housenumber\" AS addr\n  FROM planet_osm_point\n  WHERE \"addr:housenumber\" IS NOT NULL\n  AND shop IS NULL\n  AND amenity IS NULL\n  AND tourism IS NULL\n) AS data", 
+        "table": "( SELECT way, \"addr:housenumber\" AS addr\n  FROM planet_osm_point\n  WHERE \"addr:housenumber\" IS NOT NULL\n  AND shop IS NULL\n  AND amenity IS NULL\n  AND tourism IS NULL\n  AND name is NULL\n) AS data", 
         "type": "postgis"
       }, 
       "advanced": {}, 
@@ -606,7 +607,7 @@
         "key_field": "", 
         "project": "CarteEco", 
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over", 
-        "table": "( SELECT way, amenity, shop, tourism, name\n  FROM planet_osm_point\n  WHERE amenity IS NOT NULL\n  OR shop IS NOT NULL\n  OR tourism IS NOT NULL\n  UNION\n  SELECT way, amenity, shop, tourism, name\n  FROM planet_osm_polygon\n  WHERE amenity IS NOT NULL\n  OR shop IS NOT NULL\n  OR tourism IS NOT NULL\n  ) AS data", 
+        "table": "( SELECT way, amenity, shop, tourism, name\n  FROM planet_osm_point\n  WHERE amenity IN ('fast_food', 'cafe', 'restaurant', 'parking', 'hospital', 'post_office', 'bank', 'bicycle_rental', 'toilets', 'telephone', 'recycling', 'car_sharing', 'cinema', 'school', 'university', 'college')\n  OR shop IN ('bakery', 'mall', 'department_store', 'supermarket')\n  OR tourism IN ('hotel', 'hostel', 'motel')\n  UNION\n  SELECT way, amenity, shop, tourism, name\n  FROM planet_osm_polygon\n  WHERE amenity IN ('fast_food', 'cafe', 'restaurant', 'parking', 'hospital', 'post_office', 'bank', 'bicycle_rental', 'toilets', 'telephone', 'recycling', 'car_sharing', 'cinema', 'school', 'university', 'college')\n  OR shop IN ('bakery', 'mall', 'department_store', 'supermarket')\n  OR tourism IN ('hotel', 'hostel', 'motel')\n  ) AS data", 
         "type": "postgis"
       }, 
       "advanced": {}, 
@@ -646,7 +647,7 @@
   "description": "", 
   "format": "png", 
   "interactivity": false, 
-  "maxzoom": 19, 
+  "maxzoom": 20, 
   "metatile": 4, 
   "minzoom": 11, 
   "name": "OSM Bright", 

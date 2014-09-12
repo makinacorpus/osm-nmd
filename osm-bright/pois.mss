@@ -12,54 +12,35 @@
   [zoom>=19] { text-size:11; }
   [zoom>=20] { text-size:12; text-allow-overlap: true}
   [amenity = 'fast_food'] {
-    point-file: url('symbols/fast_food.png');
+    point-file: url('symbols/16-fast-food.png');
  	point-placement: interior;
   }
   [amenity = 'cafe'] {
-    point-file: url('symbols/cafe.p.16.png');
+    point-file: url('symbols/16-cafe.png');
   	point-placement: interior;
   }
   [amenity = 'restaurant'] {
-    point-file: url('symbols/restaurant.p.16.png');
-  	point-placement: interior;
-  }
-  [shop = 'bakery'] {
-    point-file: url('symbols/shop_bakery.p.16.png');
-  	point-placement: interior;
-  }
-  [tourism = 'hotel'],
-  [tourism = 'hostel'],
-  [tourism = 'motel'] {
-    point-file: url('symbols/hotel2.p.20.png');
+    point-file: url('symbols/16-restaurant.png');
   	point-placement: interior;
   }
   [amenity = 'parking'] {
-    point-file: url('symbols/parking.p.16.png');
+    point-file: url('symbols/16-parking.png');
   	point-placement: interior;
   }
   [amenity = 'hospital'] {
     point-file: url('symbols/hospital.p.16.png');
   	point-placement: interior;
   }
-  [shop = 'mall'],
-  [shop = 'department_store'] {
-    point-file: url('symbols/department_store.p.16.png');
-  	point-placement: interior;
-  }
-  [shop = 'supermarket'] {
-    point-file: url('symbols/shop_supermarket.p.16.png');
-  	point-placement: interior;
-  }
   [amenity = 'post_office'] {
-    point-file: url('symbols/post_office.p.16.png');
+    point-file: url('symbols/16-poste.png');
   	point-placement: interior;
   }
   [amenity = 'bank'] {
-    point-file: url('symbols/bank2.p.16.png');
+    point-file: url('symbols/16-banque.png');
   	point-placement: interior;
   }
   [amenity = 'bicycle_rental'] {
-    point-file: url('symbols/rental_bicycle.p.20.png');
+    point-file: url('symbols/16-bicloo.png');
   	point-placement: interior;
   }
   [amenity = 'toilets'] {
@@ -75,21 +56,40 @@
   	point-placement: interior;
   }
   [amenity = 'car_sharing'] {
-    point-file: url('symbols/car_share.p.16.png');
+    point-file: url('symbols/16-marguerite.png');
   	point-placement: interior;
   }
   [amenity = 'cinema'] {
-    point-file: url('symbols/cinema.p.24.png');
+    point-file: url('symbols/16-cinema.png');
   	point-placement: interior;
   }
   [amenity = 'school'] {
-    point-file: url('symbols/school.png');
+    point-file: url('symbols/16-ecole-primaire.png');
   	point-placement: interior;
     point-allow-overlap:true;
   }
   [amenity = 'university'],
   [amenity = 'college'] {
-    point-file: url('symbols/school.png');
+    point-file: url('symbols/16-structure-universitaire.png');
+  	point-placement: interior;
+  }
+  [tourism = 'hotel'],
+  [tourism = 'hostel'],
+  [tourism = 'motel'] {
+    point-file: url('symbols/16-hotel.png');
+  	point-placement: interior;
+  }
+  [shop = 'bakery'] {
+    point-file: url('symbols/16-boulangerie.png');
+  	point-placement: interior;
+  }
+  [shop = 'mall'],
+  [shop = 'department_store'] {
+    point-file: url('symbols/16-magasin.png');
+  	point-placement: interior;
+  }
+  [shop = 'supermarket'] {
+    point-file: url('symbols/16-alimentation.png');
   	point-placement: interior;
   }
 }
