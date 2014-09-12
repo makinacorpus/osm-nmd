@@ -128,7 +128,23 @@ Once the map tiles show up, you're now ready to start editing the template in Ti
 How to generate the tiles
 =========================
 
+
+url: https://prod-tilemill.makina-corpus.net/
+login: (cf bug https://redmine.makina-corpus.net/issues/3910)
+login & acces de la bdd openstreetmap dans le pillar !
+
+
 read the doc https://www.mapbox.com/tilemill/docs/manual/exporting/
+
+
+  ssh -p 40001 prod-tilemill.makina-corpus.net
+  su tilemill-user
+  cd
+  node /usr/share/tilemill/index.js export --help
+  cd /srv/projects/tilemill/
+
+
+
 
   cd /Applications/TileMill.app/Contents/Resources/
   ./index.js export osmnmd france.mbtiles --config=/Users/toutpt/makina/nmd/carteeco/osm-nmd/tilemill-export-args-france.json

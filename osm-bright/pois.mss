@@ -1,4 +1,4 @@
-/*
+
 #pois[zoom >= 18] {
   text-name:'[name]';
   text-face-name:@sans;
@@ -93,7 +93,7 @@
   	point-placement: interior;
   }
 }
-*/
+
 /*
 A AFFICHER
 

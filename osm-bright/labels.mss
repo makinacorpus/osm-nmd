@@ -259,16 +259,17 @@
 // =====================================================================
 // AREA LABELS
 // =====================================================================
+
 #area_label {
   // Bring in labels gradually as one zooms in, bases on polygon area
-  [type='*'][zoom>=10][area>102400000],
-  [type='*'][zoom>=11][area>25600000],
-  [type='*'][zoom>=13][area>1600000],
-  [type='*'][zoom>=14][area>320000],
-  [type='*'][zoom>=15][area>80000],
-  [type='*'][zoom>=16][area>20000],
-  [type='*'][zoom>=17][area>5000],
-  [type='*'][zoom>=18][area>=0] {
+  [zoom>=10][area>102400000],
+  [zoom>=11][area>25600000],
+  [zoom>=13][area>1600000],
+  [zoom>=14][area>320000],
+  [zoom>=15][area>80000],
+  [zoom>=16][area>20000],
+  [zoom>=17][area>5000],
+  [zoom>=18][area>=0] {
     text-name: "[name]";
     text-halo-radius: 1.5;
     text-face-name:@sans;
@@ -300,122 +301,30 @@
       text-fill: @water * 0.6;
       text-halo-fill: lighten(@water, 10);
     }
-    [type = 'fast_food'] {
-      point-file: url('symbols/fast_food.png');
-      point-placement: interior;
-    }
-    [type = 'cafe'] {
-      point-file: url('symbols/cafe.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'restaurant'] {
-      point-file: url('symbols/restaurant.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'bakery'] {
-      point-file: url('symbols/shop_bakery.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'hotel'],
-    [type = 'hostel'],
-    [type = 'motel'] {
-      point-file: url('symbols/hotel2.p.20.png');
-      point-placement: interior;
-    }
-    [type = 'parking'] {
-      point-file: url('symbols/parking.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'hospital'] {
-      point-file: url('symbols/hospital.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'mall'],
-    [type = 'department_store'] {
-      point-file: url('symbols/department_store.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'supermarket'] {
-      point-file: url('symbols/shop_supermarket.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'post_office'] {
-      point-file: url('symbols/post_office.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'bank'] {
-      point-file: url('symbols/bank2.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'bicycle_rental'] {
-      point-file: url('symbols/rental_bicycle.p.20.png');
-      point-placement: interior;
-    }
-    [type = 'toilets'] {
-      point-file: url('symbols/toilets.p.20.png');
-      point-placement: interior;
-    }
-    [type = 'telephone'] {
-      point-file: url('symbols/telephone.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'recycling'] {
-      point-file: url('symbols/recycling.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'car_sharing'] {
-      point-file: url('symbols/car_share.p.16.png');
-      point-placement: interior;
-    }
-    [type = 'cinema'] {
-      point-file: url('symbols/cinema.p.24.png');
-      point-placement: interior;
-    }
-    [type = 'school'] {
-      point-file: url('symbols/school.png');
-      point-placement: interior;
-      point-allow-overlap:true;
-    }
-    [type = 'university'],
-    [type = 'college'] {
-      point-file: url('symbols/school.png');
-      point-placement: interior;
-    }
   }
-  [type='*'][zoom=15][area>1600000],
-  [type='*'][zoom=16][area>80000],
-  [type='*'][zoom=17][area>20000],
-  [type='*'][zoom=18][area>5000] {
+  [zoom=15][area>1600000],
+  [zoom=16][area>80000],
+  [zoom=17][area>20000],
+  [zoom=18][area>5000] {
     text-name: "[name]";
     text-size: 13;
     text-wrap-width: 60;
     text-character-spacing: 1;
     text-halo-radius: 2;
   }
-  [type='*'][zoom=16][area>1600000],
-  [type='*'][zoom=17][area>80000],
-  [type='*'][zoom=18][area>20000] {
+  [zoom=16][area>1600000],
+  [zoom=17][area>80000],
+  [zoom=18][area>20000] {
     text-size: 15;
     text-character-spacing: 2;
     text-wrap-width: 120;
   }
-  [type='*'][zoom>=17][area>1600000],
-  [type='*'][zoom>=18][area>80000] {
+  [zoom>=17][area>1600000],
+  [zoom>=18][area>80000] {
     text-size: 20;
     text-character-spacing: 3;
     text-wrap-width: 180;
   }
-}
-
-#poi[type='university'][zoom>=15],
-#poi[type='hospital'][zoom>=16],
-#poi[type='school'][zoom>=17],
-#poi[type='library'][zoom>=17] {
-  text-name:"[name]";
-  text-face-name:@sans;
-  text-size:10;
-  text-wrap-width:30;
-  text-fill: @poi_text;
 }
 
 
