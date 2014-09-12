@@ -1,0 +1,33 @@
+#
+# This file contains default values which are used
+# by the salt states deploying your project.
+# you may copy them to your relevant PILLAR file
+# before editing them.
+# If you need to add variables, this is where to begin.
+# Please keep defaults in there, but real passwords
+# must be putted inside pillar
+#
+# replace project_name in your pillar by
+# the current projectname
+# you can also merge parts of this file
+# with the relevant pillar
+makina-states.projectname:
+  data:
+    users:
+      - root: foo
+    home: "{data_root}/tilemill/"
+    files: "{data_root}/tilemill/Documents/MapBox"
+    htaccess: "/etc/nginx/tilemill-{name}.access"
+    port: 80
+    node: /usr/bin/node
+    ui_domain: foo.foo.tld
+    tiles_domain: "{ui_domain}"
+    ui_port: 20009
+    tiles_port: 20008
+    db:
+      host: 10.5.0.2
+      port: 5432
+      db: xxx
+      user: xxx
+      password: xxx
+# vim:set ft=yaml:
