@@ -129,29 +129,28 @@ How to generate the tiles
 =========================
 
 
-url: https://prod-tilemill.makina-corpus.net/
-login: (cf bug https://redmine.makina-corpus.net/issues/3910)
-login & acces de la bdd openstreetmap dans le pillar !
+Read the doc https://www.mapbox.com/tilemill/docs/manual/exporting/
 
+Access:
 
-read the doc https://www.mapbox.com/tilemill/docs/manual/exporting/
-
-
+  url: https://prod-tilemill.makina-corpus.net/
+  login: (cf bug https://redmine.makina-corpus.net/issues/3910)
+  login & acces de la bdd openstreetmap dans le pillar !
   ssh -p 40001 prod-tilemill.makina-corpus.net
   su tilemill-user
-  cd
-  node /usr/share/tilemill/index.js export --help
-  cd /srv/projects/tilemill/
 
 
+Create the project:
+
+  cd /srv/projects/tilemill/project/osm-nmd
+  ./make.py
+
+Export :
+
+  ./export.sh
 
 
-  cd /Applications/TileMill.app/Contents/Resources/
-  ./index.js export osmnmd france.mbtiles --config=/Users/toutpt/makina/nmd/carteeco/osm-nmd/tilemill-export-args-france.json
-  ./index.js export osmnmdnantes nantes.mbtiles --config=/Users/toutpt/makina/nmd/carteeco/osm-nmd/tilemill-export-args-nantes.json
-
-
-  ./index.js export osmnmd pdl.mbtiles --bbox="-2.58728,46.24445,0.95581,48.58206 " --minzoom=11 --maxzoom=13 
+Notes:
 
 --bbox="xmin,ymin,xmax,ymax"
 --bbox="-131.4844,20.3034,-62.5781,51.3992"
